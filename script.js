@@ -1,35 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Loading screen
     setTimeout(() => {
         document.querySelector('.loading-screen').style.display = 'none';
-    }, 1500);
+    }, 2000);
 
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll('.scroll-reveal');
-    const revealHandler = () => {
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            if (elementTop < windowHeight * 0.75) {
-                element.classList.add('revealed');
-            }
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
+    });
+
+    // Scroll animation for cards
+    const cards = document.querySelectorAll('.card');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     };
-    window.addEventListener('scroll', revealHandler);
-    revealHandler();
 
-    // File upload functionality
-    const fileInputs = document.querySelectorAll('.file-input');
-    fileInputs.forEach(input => {
-        input.addEventListener('change', function(e) {
-            const fileList = this.closest('.file-upload').querySelector('.file-list');
-            fileList.innerHTML = '';
-            for (let i = 0; i < this.files.length; i++) {
-                const file = this.files[i];
-                const fileItem = document.createElement('div');
-                fileItem.textContent = file.name;
-                fileList.appendChild(fileItem);
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
             }
         });
+    }, observerOptions);
+
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
     });
 });
