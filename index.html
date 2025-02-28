@@ -3,37 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Click Lab</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>The Click Lab - Digital Marketing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
         <div class="logo">The Click Lab</div>
-        <div class="hamburger" onclick="toggleMenu()">
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-        <nav class="nav-menu">
+        <nav class="mobile-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    
-    <section id="home" class="fade-in">
-        <h2>Welcome to The Click Lab</h2>
-        <p>Your one-stop solution for creative digital experiences.</p>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to The Click Lab</h1>
+            <p>Your Partner in Digital Marketing Success</p>
+            <a href="#services" class="btn">Explore Our Services</a>
+        </div>
     </section>
-    
+
+    <section id="services" class="services">
+        <h2>Our Digital Marketing Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <i class="fas fa-search"></i>
+                <h3>SEO</h3>
+                <p>Improve your website's visibility on search engines and drive organic traffic.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Social Media Marketing</h3>
+                <p>Engage with your audience and build your brand presence on social platforms.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Marketing</h3>
+                <p>Connect with your customers directly and boost conversions with targeted email campaigns.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>PPC Advertising</h3>
+                <p>Get immediate results with pay-per-click advertising and reach your ideal customers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-us">
+        <h2>About The Click Lab</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="assets/about-us.jpg" alt="About Us Image">
+            </div>
+            <div class="about-text">
+                <p>We are a digital marketing agency dedicated to helping businesses grow online. Our team of experts provides tailored strategies and innovative solutions to achieve your marketing goals. We focus on creating data-driven campaigns that deliver measurable results and lasting success.</p>
+                <p>At The Click Lab, we believe in building strong partnerships with our clients. We take the time to understand your unique needs and develop customized strategies that align with your business objectives. Let us help you transform your digital presence and achieve remarkable growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2025 The Click Lab. All rights reserved.</p>
     </footer>
-    
-    <script src="script.js"></script>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
